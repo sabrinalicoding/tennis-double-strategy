@@ -1,0 +1,187 @@
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eef3ff;
+  color: #101828;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 18px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+p {
+  margin: 0;
+  color: #4d5d77;
+}
+
+.link-btn,
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: #2f55ea;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #dce4f2;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(30, 54, 100, 0.1);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #42526c;
+}
+
+.phase {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #29364f;
+}
+
+.court-wrap {
+  border: 1px solid #dce4f2;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 72vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.scene {
+  width: auto;
+  height: min(70vh, 760px);
+  display: block;
+  background: #2d7f4f;
+}
+
+.marker-dot {
+  fill: #ffd970;
+  stroke: #1f2a3d;
+  stroke-width: 0.22;
+}
+
+.marker-label {
+  fill: #1a2334;
+  font-size: 1.18px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 0.12;
+}
+
+.player-icon {
+  pointer-events: none;
+  filter: drop-shadow(0 0.45px 0.85px rgba(0, 0, 0, 0.25));
+}
+
+.player-icon .body,
+.player-icon .head {
+  stroke: #f8fafc;
+  stroke-width: 0.14;
+}
+
+.player-icon .arm-left,
+.player-icon .arm-right,
+.player-icon .leg-left,
+.player-icon .leg-right {
+  stroke: #f8fafc;
+  stroke-width: 0.18;
+  stroke-linecap: round;
+}
+
+.player-icon .racket-shaft {
+  stroke: #e7edf9;
+  stroke-width: 0.2;
+  stroke-linecap: round;
+}
+
+.player-icon .racket-head {
+  fill: none;
+  stroke: #e7edf9;
+  stroke-width: 0.18;
+}
+
+.player-icon.teammate .body,
+.player-icon.teammate .head {
+  fill: #5ca5ff;
+}
+
+.player-icon.you .body,
+.player-icon.you .head {
+  fill: #ffd166;
+}
+
+.player-icon.opponent .body,
+.player-icon.opponent .head {
+  fill: #ff6b6b;
+}
+
+.player-icon.you .body {
+  fill: #ffd166;
+}
+
+.player-icon.you .head {
+  fill: #ffcd4a;
+}
+
+.player-label {
+  fill: #fff;
+  font-size: 1.15px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 0.2;
+}
+
+.ball {
+  fill: #fef08a;
+  stroke: #f8fafc;
+  stroke-width: 0.16;
+}
