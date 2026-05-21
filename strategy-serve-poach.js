@@ -208,31 +208,55 @@ function chooseTacticalOne(layoutPositions, fallbackPoint, chosenFour) {
   );
 }
 
-function applyScenarioPositionsFromSavedLayout() {
+function getLatestLayoutPositionsFromLocalStorage() {
   const raw = localStorage.getItem(savedLayoutsKey);
   if (!raw) {
-    return;
+    return null;
   }
 
   let layouts;
   try {
     layouts = JSON.parse(raw);
   } catch {
-    return;
+    return null;
   }
 
   if (!Array.isArray(layouts) || layouts.length === 0) {
-    return;
+    return null;
   }
 
   const latest = layouts[layouts.length - 1];
   if (!latest || !Array.isArray(latest.positions)) {
-    return;
+    return null;
+  }
+  return latest.positions;
+}
+
+async function getLayoutPositionsForScenario() {
+  const localPositions = getLatestLayoutPositionsFromLocalStorage();
+  if (localPositions) {
+    return localPositions;
   }
 
-  const p0 = chooseClosestPosition(latest.positions, 0, anchor.you0);
-  const p4 = chooseTacticalFour(latest.positions, anchor.you4);
-  const p1 = chooseTacticalOne(latest.positions, anchor.you1, p4);
+  try {
+    const response = await fetch("./published-layout.json", { cache: "no-cache" });
+    if (!response.ok) {
+      return null;
+    }
+    const published = await response.json();
+    if (!published || !Array.isArray(published.positions)) {
+      return null;
+    }
+    return published.positions;
+  } catch {
+    return null;
+  }
+}
+
+function applyScenarioPositions(layoutPositions) {
+  const p0 = chooseClosestPosition(layoutPositions, 0, anchor.you0);
+  const p4 = chooseTacticalFour(layoutPositions, anchor.you4);
+  const p1 = chooseTacticalOne(layoutPositions, anchor.you1, p4);
 
   if (p0) {
     anchor.you0 = { x: p0.x, y: p0.y };
@@ -371,9 +395,16 @@ poachToggle.addEventListener("change", () => {
     : "Poach disabled: hold 0/4 lane on wide returns.";
 });
 
-resetPlayers();
-applyScenarioPositionsFromSavedLayout();
-renderTacticalMarkers();
-resetPlayers();
-phaseText.textContent = "Live simulation: serve flow in progress.";
-requestAnimationFrame(tick);
+async function initializeScenario() {
+  resetPlayers();
+  const layoutPositions = await getLayoutPositionsForScenario();
+  if (layoutPositions) {
+    applyScenarioPositions(layoutPositions);
+  }
+  renderTacticalMarkers();
+  resetPlayers();
+  phaseText.textContent = "Live simulation: serve flow in progress.";
+  requestAnimationFrame(tick);
+}
+
+initializeScenario();
