@@ -1080,11 +1080,15 @@ syncEditorState();
 updateSavedLayoutsInfo();
 refreshSavedLayoutOptions();
 
-const initialLayouts = getSavedLayouts();
-if (initialLayouts.length > 0) {
-  const latestLayout = initialLayouts[initialLayouts.length - 1];
-  loadLayoutIntoCourt(latestLayout);
-  refreshSavedLayoutOptions(getLayoutId(latestLayout, initialLayouts.length - 1));
-} else {
-  loadPublishedLayoutFallback();
+async function initializeLayouts() {
+  const initialLayouts = getSavedLayouts();
+  if (initialLayouts.length > 0) {
+    const latestLayout = initialLayouts[initialLayouts.length - 1];
+    loadLayoutIntoCourt(latestLayout);
+    refreshSavedLayoutOptions(getLayoutId(latestLayout, initialLayouts.length - 1));
+  } else {
+    loadPublishedLayoutFallback();
+  }
 }
+
+initializeLayouts();
