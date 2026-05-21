@@ -246,6 +246,24 @@ function loadLayoutIntoCourt(layout) {
   );
 }
 
+async function loadPublishedLayoutFallback() {
+  try {
+    const response = await fetch("./published-layout.json", { cache: "no-cache" });
+    if (!response.ok) {
+      return false;
+    }
+    const publishedLayout = await response.json();
+    if (!publishedLayout || !Array.isArray(publishedLayout.positions)) {
+      return false;
+    }
+    loadLayoutIntoCourt(publishedLayout);
+    setStatus("Loaded published default layout.");
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function professionalizeStrategyText(rawText) {
   const replacements = [
     [/\b(gonna)\b/gi, "going to"],
@@ -1067,4 +1085,6 @@ if (initialLayouts.length > 0) {
   const latestLayout = initialLayouts[initialLayouts.length - 1];
   loadLayoutIntoCourt(latestLayout);
   refreshSavedLayoutOptions(getLayoutId(latestLayout, initialLayouts.length - 1));
+} else {
+  loadPublishedLayoutFallback();
 }

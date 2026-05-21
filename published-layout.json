@@ -1,0 +1,36 @@
+{
+  "id": "layout-1779321819419-89153",
+  "name": "Layout 5/20/2026, 17:03:39",
+  "savedAt": "2026-05-21T00:03:39.419Z",
+  "coordinateMode": "full-court-v2",
+  "positions": [
+    { "number": 5, "title": "defense", "note": "When opponent swingvolley a lob or at service line to attack.", "x": 16.5558, "y": 73.8925 },
+    { "number": 5, "title": "defense", "note": "When opponent swingvolley a lob or at service line to attack.", "x": 82.8488, "y": 73.9571 },
+    { "number": 4, "title": "nutrual", "note": "When your partner is serving, or cross court rally after the ball pass the player to the opponent court.", "x": 29.3023, "y": 61.9322 },
+    { "number": 4, "title": "nutrual", "note": "When your partner is serving, or cross court rally after the ball pass the player to the opponent court.", "x": 68.9448, "y": 61.5558 },
+    { "number": 1, "title": "Poach", "note": "Poach cross court when see opportunities, move from 4 -> 1.", "x": 45.6825, "y": 58.5568 },
+    { "number": 1, "title": "Poach", "note": "Poach cross court when see opportunities, move from 4 -> 1.", "x": 54.6355, "y": 58.6062 },
+    { "number": 6, "title": "L", "note": "Neutral base line position, at this location, it's recommended to use backhand for crosscourt and down the line otherwise will create too much space in the middle.", "x": 17.1327, "y": 92.9088 },
+    { "number": 6, "title": "L", "note": "Neutral base line position, at this location, it's recommended to use backhand for crosscourt and down the line otherwise will create too much space in the middle.", "x": 81.7507, "y": 92.9372 },
+    { "number": 0, "title": "defense", "note": "When opponent is serving, or baseline player is cross court rally and the ball just pass you to your parnter.", "x": 46.55, "y": 70.7709 },
+    { "number": 0, "title": "defense", "note": "When opponent is serving, or baseline player is cross court rally and the ball just pass you to your parnter.", "x": 53.9714, "y": 70.8066 },
+    { "number": 3, "title": "Defense", "note": "When opponent lob net player to force a switch, both players should be at 3 to prepare a forehand lob, overhead or swingvolley.", "x": 16.5, "y": 83.0298 },
+    { "number": 3, "title": "Defense", "note": "When opponent lob net player to force a switch, both players should be at 3 to prepare a forehand lob, overhead or swingvolley.", "x": 48.3453, "y": 82.956 },
+    { "number": 2, "title": "Neutral", "note": "When we want to do double net.", "x": 30.4172, "y": 70.7332 },
+    { "number": 2, "title": "Defense", "note": "When we want to do double net.", "x": 70.4525, "y": 70.6099 }
+  ],
+  "arrows": [
+    { "x1": 23.9984, "y1": 61.8182, "x2": 14.1469, "y2": 61.8278 },
+    { "x1": 14.6219, "y1": 63.1113, "x2": 24.0188, "y2": 63.0012 },
+    { "x1": 31.4281, "y1": 63.781, "x2": 44.1172, "y2": 69.2288 },
+    { "x1": 45.8109, "y1": 68.4036, "x2": 32.75, "y2": 63.1963 },
+    { "x1": 55.2922, "y1": 68.886, "x2": 66.3391, "y2": 63.0324 },
+    { "x1": 68.3969, "y1": 63.5907, "x2": 58.1391, "y2": 69.0744 },
+    { "x1": 73.2203, "y1": 61.9738, "x2": 85.6469, "y2": 61.9947 },
+    { "x1": 85.4953, "y1": 60.6286, "x2": 73.6547, "y2": 60.6866 },
+    { "x1": 33.2572, "y1": 60.7998, "x2": 41.0772, "y2": 58.7796 },
+    { "x1": 42.4309, "y1": 59.6697, "x2": 34.3014, "y2": 61.4638 },
+    { "x1": 59.058, "y1": 58.3458, "x2": 66.2921, "y2": 60.5017 },
+    { "x1": 64.6304, "y1": 61.0426, "x2": 58.5847, "y2": 59.3262 }
+  ]
+}
