@@ -29,7 +29,7 @@ const anchor = {
   oppNet: { x: 26.4, y: 30.5 },
 };
 const savedLayoutsKey = "tennis-doubles-saved-layouts";
-const courtViewBox = {
+const savedLayoutViewBox = {
   minX: 0,
   minY: -8,
   width: 36,
@@ -135,8 +135,8 @@ function distance(a, b) {
 
 function percentToScenePoint(position) {
   return {
-    x: courtViewBox.minX + (position.x / 100) * courtViewBox.width,
-    y: courtViewBox.minY + (position.y / 100) * courtViewBox.height,
+    x: savedLayoutViewBox.minX + (position.x / 100) * savedLayoutViewBox.width,
+    y: savedLayoutViewBox.minY + (position.y / 100) * savedLayoutViewBox.height,
   };
 }
 
@@ -170,7 +170,7 @@ function chooseTacticalFour(layoutPositions, fallbackPoint) {
     return null;
   }
   // Prefer left-half 4 if present for this scenario orientation.
-  const centerX = courtViewBox.minX + courtViewBox.width / 2;
+  const centerX = savedLayoutViewBox.minX + savedLayoutViewBox.width / 2;
   const leftSide = allFours.filter((position) => position.x <= centerX);
   const pool = leftSide.length > 0 ? leftSide : allFours;
   return pool.reduce((best, current) =>
@@ -191,7 +191,7 @@ function chooseTacticalOne(layoutPositions, fallbackPoint, chosenFour) {
     return null;
   }
 
-  const centerX = courtViewBox.minX + courtViewBox.width / 2;
+  const centerX = savedLayoutViewBox.minX + savedLayoutViewBox.width / 2;
   // Keep 1 on the same side as selected 4 when possible.
   const sameSide = chosenFour
     ? allOnes.filter((position) => (position.x - centerX) * (chosenFour.x - centerX) >= 0)

@@ -306,8 +306,15 @@ function toPercentPosition(event) {
 
 function toPercentFromClient(clientX, clientY) {
   const bounds = court.getBoundingClientRect();
-  const rawX = ((clientX - bounds.left) / bounds.width) * 100;
-  const rawY = ((clientY - bounds.top) / bounds.height) * 100;
+  const styles = window.getComputedStyle(court);
+  const borderLeft = Number.parseFloat(styles.borderLeftWidth) || 0;
+  const borderTop = Number.parseFloat(styles.borderTopWidth) || 0;
+  const contentLeft = bounds.left + borderLeft;
+  const contentTop = bounds.top + borderTop;
+  const contentWidth = court.clientWidth || bounds.width;
+  const contentHeight = court.clientHeight || bounds.height;
+  const rawX = ((clientX - contentLeft) / contentWidth) * 100;
+  const rawY = ((clientY - contentTop) / contentHeight) * 100;
   const x = Math.min(100, Math.max(0, rawX));
   const y = Math.min(100, Math.max(0, rawY));
   return { x: Number(x.toFixed(4)), y: Number(y.toFixed(4)) };
